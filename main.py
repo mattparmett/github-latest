@@ -9,12 +9,5 @@ import requests
 if __name__ == "__main__":
     username = sys.argv[1]
 
-    # TODO:
-    #
-    # 1. Retrieve a list of "events" associated with the given user name
-    # 2. Print out the time stamp associated with the first event in that list.
-
-    print("COMPLETE THE TODOs")
-    
-
-
+    events = requests.get("https://api.github.com/users/{}/events".format(username)).json()
+    print("First event for user {} created at {}".format(username, events[0]['created_at']))
